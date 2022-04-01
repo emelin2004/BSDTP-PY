@@ -42,7 +42,7 @@ Setting up and adjusting the positions of the receivers and lasers using "SETUP(
 ## Info and other
 Author: emelinhabibovic.de | Contact: contact@emelinhabibovic.de | Project Page: https://emelinhabibovic.de/github/BSDTP-Page.html
 
-P.S., I mainly speak German, because of that sorry for any grammar mistakes you may stumble on in this readme or in the code.
+P.S., I mainly speak German, because of that sorry for any grammar mistakes you may stumble upon in this readme or in the code.
 
 ## License
 

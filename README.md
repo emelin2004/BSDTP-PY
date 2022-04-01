@@ -40,9 +40,7 @@ Setting up and adjusting the positions of the receivers and lasers using "SETUP(
 ![N|Solid](https://cdn.emelinhabibovic.de/git/BSDTP-PY/examples/laser-communication/scr2.jpg)
 
 ## Info and other
-Author: emelinhabibovic.de
-Contact: contact@emelinhabibovic.de
-Project Page: emelinhabibovic.de/github/BSDTP-Page.html
+Author: emelinhabibovic.de | Contact: contact@emelinhabibovic.de | Project Page: https://emelinhabibovic.de/github/BSDTP-Page.html
 
 P.S., I mainly speak German, because of that sorry for any grammar mistakes you may stumble on in this readme or in the code.
 

@@ -11,7 +11,7 @@ clear = lambda: os.system('clear')
 RX_PIN=6
 TX_PIN=13 #pwm !
 MASTER=False
-INVERT_RX=False
+INVERT_RX=False #transistor dependant
 INVERT_TX=True	#transistor dependant
 WAIT_ON_START=False
 poolTime = 0.03 #duration of the bit 1 impuls
@@ -41,10 +41,8 @@ def setTX(state):	#false LOW, true HIGH
 #8 bytes per data block
 print("Pulling TX Low")
 setTX(False)
+#einfach so
 time.sleep(1)
-
-#it should somehow get the speed of transmision and establish a link?
-#send a impuls to the second py and wait for the response
 
 if(WAIT_ON_START):
 	if (MASTER):
@@ -76,7 +74,7 @@ BUFFER=[]
 #0 = start/end
 #1 (t >= poolTime) = 1
 #1 (t < poolTime) = 0
-#1 (t > poolTime*2) = Call to recieve and clear buffer #to implement!
+#1 (t > poolTime*2) = Call to recieve and clear buffer 
 #on RX=1 get the start time
 #wait until RX=0 and then get the endTime
 #compare the time difference with poolTime
@@ -190,7 +188,7 @@ def askForInput():
 		print("WARNING: Laser will light up in 5s!")
 		time.sleep(5)
 		setTX(True)
-		thrd = Thread(target=setupModeCall);
+		thrd = Thread(target=setupModeCall)
 		thrd.start()
 		x = input("INFO: WAITING FOR Enter KEY TO BE PRESSED\n") #if 
 		setupMode = False
@@ -225,16 +223,12 @@ def tikSend(bytes):
 	for c in bytes:
 		#print(c)
 		time.sleep(bitSleep)
-		if (c == "1"):
-			setTX(True)
-			time.sleep(poolTime)
-			setTX(False)
-		else:
-			setTX(True)
-			time.sleep(poolTime/2)
-			setTX(False)
+		setTX(True)
+		time.sleep(poolTime if c == "1" else poolTime/2)
+		setTX(False)
 			
 clear()
 Thread(target=read).start() #start this is anither thread so that it all works at the same time RX and TX
 time.sleep(1)
 askForInput()
+#i have already made a node js version of this same "protocol" with a web ui 
